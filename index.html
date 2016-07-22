@@ -6,27 +6,32 @@
         <link rel="stylesheet" href="css/style.css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
-        <script src="js/fruits_and_veggies_test.js"></script>
+        <script src="js/fruits_and_veggies.js"></script>
         <script src="js/app.js"></script>
     </head>
     <body ng-app="App" ng-controller="Ctrl">
         <div class="container">
             <h1>Fruit and Veggies</h1>
+             <div>
+              <button ng-click="checkWin()" class="btn btn-success">Did I win?</button>
+              <p ng-model="result" class="result">{{ result }}</p>
+              <button ng-click="gameStart($scope.comboArray)" class="btn btn-info pull-right">Reset</button>
+            </div>
             <div class="row">
                 <div class="col-sm-4">
-                    <h4>Fruits</h4>
-                    <div class="well" ng-repeat="fruit in fruits2 track by $index"><span class="center">{{ fruit }}</span><button class="btn btn-primary pull-right" ng-click="moveBackRight($index)">></button></div>
+                    <h4 class="center">Fruits</h4>
+                  <!-- ng-class="{wrong: fruit.type !== 'fruit'"> -->
+                    <div class="well" ng-repeat="fruit in fruitsAnswers track by $index"><span class="center">{{ fruit }}</span><button class="btn btn-primary pull-right" ng-click="moveBackRight($index)">&rarr;</button></div>
                 </div>
                 <div class="col-sm-4">
-                    col 2
-                    <div class="well" ng-repeat="prodi in produce track by $index"><button class="btn btn-primary pull-left" ng-click="moveLeft($index)"><</button><span class="center">{{ prodi }}</span><button class="btn btn-primary pull-right" ng-click="moveRight($index)">></button></div>
+                    <h4 class="center">Produce</h4>
+                    <div class="well" ng-repeat="prodi in produce track by $index"><button class="btn btn-primary pull-left" ng-click="moveLeft($index)">&larr;</button><span class="center">{{ prodi }}</span><button class="btn btn-primary pull-right" ng-click="moveRight($index)">&rarr;</button></div>
                 </div>
                 <div class="col-sm-4">
-                    Veggies
-                    <div class="well" ng-repeat="veggie in vegetables2 track by $index"><button class="btn btn-primary pull-left" ng-click="moveBackLeft($index)"><</button><span class="center">{{ veggie }}</span></div>
+                    <h4 class="center">Veggies</h4>
+                    <div class="well" ng-repeat="veggie in vegetablesAnswers track by $index"><button class="btn btn-primary pull-left" ng-click="moveBackLeft($index)">&larr;</button><span class="center">{{ veggie }}</span></div>
                 </div>
             </div>
         </div>
-      <button ng-click="checkWin()">Did I win?</button>
     </body>
 </html>
