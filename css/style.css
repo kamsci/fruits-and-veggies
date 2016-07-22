@@ -1,1 +1,7 @@
 /* file for your css */
+
+.center {
+  text-align: center;
+  padding: 20px 20px;
+  margin: auto auto;
+}

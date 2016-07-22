@@ -9,20 +9,24 @@
         <script src="js/fruits_and_veggies_test.js"></script>
         <script src="js/app.js"></script>
     </head>
-    <body>
+    <body ng-app="App" ng-controller="Ctrl">
         <div class="container">
             <h1>Fruit and Veggies</h1>
             <div class="row">
                 <div class="col-sm-4">
-                    col 1
+                    <h4>Fruits</h4>
+                    <div class="well" ng-repeat="fruit in fruits2 track by $index"><span class="center">{{ fruit }}</span><button class="btn btn-primary pull-right" ng-click="moveBackRight($index)">></button></div>
                 </div>
                 <div class="col-sm-4">
                     col 2
+                    <div class="well" ng-repeat="prodi in produce track by $index"><button class="btn btn-primary pull-left" ng-click="moveLeft($index)"><</button><span class="center">{{ prodi }}</span><button class="btn btn-primary pull-right" ng-click="moveRight($index)">></button></div>
                 </div>
                 <div class="col-sm-4">
-                    col 3
+                    Veggies
+                    <div class="well" ng-repeat="veggie in vegetables2 track by $index"><button class="btn btn-primary pull-left" ng-click="moveBackLeft($index)"><</button><span class="center">{{ veggie }}</span></div>
                 </div>
             </div>
         </div>
+      <button ng-click="checkWin()">Did I win?</button>
     </body>
 </html>
